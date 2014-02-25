@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Contextos {% endblock %}
+
+{% block encabezado  %}
+        <h1>Crear Contexto</h1>
+{% endblock %}
+
+{% block contenido %}
+
+  <div id="div_form_crea_contexto">
+
+   <form method="post" action="">{% csrf_token %}
+
+
+      {% include 'dialplan/form_crea_contexto.html' %}
+
+
+     <input id="boton_submit_form_crea_contexto" type='submit' value='Crear Contexto' />
+
+   </form>
+
+  </div>
+
+
+{% endblock %}
+

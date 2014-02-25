@@ -1,0 +1,16 @@
+
+ <h4> Lista de funcionalidades instaladas</h4>
+{%for app in lista_app %}
+ <div class="div_audio" id="div_app_id_{{app.name}}">
+
+       {{ app.nombre }}
+
+       <div id="div_imagen_borra_audio">
+        <a onclick="borra_app('{{app.name}}');"> <img src="images/borrar-icono-linea.png" height="22" width="22"/></a>
+       </div>
+
+
+
+ </div>
+ {%endfor%}
+

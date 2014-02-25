@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Extensiones SIP {% endblock %}
+
+{% block encabezado  %}
+        <h1>Crear extension IAX</h1>
+{% endblock %}
+
+{% block contenido %}
+
+  <div id="div_form_crea_iax">
+
+   <form method="post" action="">{% csrf_token %}
+
+      <input class="btn btn-default" id="boton_submit_form_crea_iax" type='submit' value='Crear Extension IAX' />
+
+      {% include 'extensiones/iax/form_ext_iax.html' %}
+
+   </form>
+
+  </div>
+
+
+{% endblock %}
+

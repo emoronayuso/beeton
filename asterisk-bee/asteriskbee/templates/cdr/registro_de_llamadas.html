@@ -1,0 +1,25 @@
+
+
+      <p>REGISTRO DE LLAMADAS</p>
+
+            {%ifequal hay_fecha_ini 0 %}
+              <span style='color: red;'>Debe introducir una fecha de inicio para la búsqueda</span> <p>
+            {%endifequal%}
+
+            {{msg}}
+
+           <table id="tabla_cdr" cellspacing="0" border="1">
+            <tbody>
+             <tr> <td>Fecha</td> <td>Hora </td> <td>Emisor </td> <td>Contexto</td>
+              <td>Receptor</td> <td>Duracion</td> <td>Estado</td>
+             </tr>
+
+            {% for fecha,hora,emisor,contexto,receptor,duracion,estado in lista_registros %}
+              <tr> <td>{{fecha}} </td>  <td> {{hora}} </td> <td> {{emisor}} </td>  <td> {{contexto}} </td>                 <td> {{receptor}} </td>  <td> {{duracion}} </td>
+                <td> {% ifequal estado 'ANSWERED' %}<span style="color: green;"> RESPONDIDA</span> {% else%}{% ifequal estado 'NO ANSWER' %}   NO RESPONDE {%else%} {% ifequal estado 'BUSY' %}<span style="color: blue;"> OCUPADO </span> {%else%} {% ifequal estado 'FAILED' %} <span style="color: red;"> FALLIDA</span> {%else%} {{estado}} {%endifequal%} {%endifequal%} {%endifequal%} {%endifequal%}</td>
+              </tr>
+            {% endfor %}
+
+            </tbody>
+           </table>
+

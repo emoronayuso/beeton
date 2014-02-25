@@ -1,0 +1,50 @@
+
+
+body {
+
+ background-color: #E0FFB8;
+
+}
+
+
+#formulario_logueo {
+
+  border : solid 1px #DFDFDF;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #F8F8FF;
+  width: 30%;
+  margin: 12% 35%;
+  padding: 23px 7px;
+}
+
+#formulario_logueo span{
+
+ margin: 2px 3px !important;
+ position: relative !important;
+
+
+}
+
+#formulario_logueo form{
+ position: relative;
+ margin: 30px 31px;
+}
+
+#logo_login_beeton{
+
+ margin: 2px 45px; 
+
+}
+
+#formulario_logueo form p input{
+  float: right;
+}
+
+
+#error_login {
+ 
+ margin: 2px 3px;
+ padding: 35px 35px;
+
+}

@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Extensiones SIP {% endblock %}
+
+{% block encabezado  %}
+        <h1>Modificar extension SIP</h1>
+{% endblock %}
+
+{% block contenido %}
+
+  <div id="div_form_crea_sip">
+
+   <form method="post" action="">{% csrf_token %}
+
+
+      <input class="btn btn-default" id="boton_submit_form_crea_sip" type='submit' value='Modificar Extension SIP' />
+
+      {% include 'extensiones/sip/form_ext_sip.html' %}
+
+
+   </form>
+
+  </div>
+
+
+{% endblock %}
+

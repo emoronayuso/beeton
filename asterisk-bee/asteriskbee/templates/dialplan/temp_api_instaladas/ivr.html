@@ -1,0 +1,430 @@
+
+<!--
+
+ AYUDA PARA DEFINIR PLANTILLA DE PARAMETROS:
+ 
+ Podemos usar las siguientes variables de las plantillas.
+
+ {{par}} -> Valor del parametro string con el formato determinado que hay que enviar.
+  id del input con los valores string de los parametros -> FORMATO: 'id_paramX' [X numero del parametro]
+
+
+ {{linea_form }}      -> formulario de una linea del dialplan
+
+ {{forloop.counter}}  -> Numero del parametro actual
+
+ {{aplicacion_form}}  -> Formulario de la aplicacion
+
+ {{lista_contextos}}  -> Listado de los contextos creados
+
+ {{mapa_audios}}          -> Mapa de audios FORMATO: mapa_audio[nombre] : [opcion_para_asterisk]
+ {{lista_valores_audio}}  ->
+ {{lista_opciones_audio}} ->
+
+
+////////////  Funciones javascript disonbles /////////////
+ ///NO ESTA DISPONIBLE
+  muestra_oculta_div(id_div)   -> funcion que muestra/oculta un div determinado, al pasarle su id 
+ 
+//////////////////////////////////////////////////////////
+
+-->
+{% block head%}
+
+<style type="text/css">
+
+#input_param8 {
+   display: none;
+}
+   
+#param8_ivr {
+ 
+ display: none;
+
+}
+
+/* PARAMETRO 5 */
+#id_param5 {
+   display: none;
+}
+
+#id_des_param5 {
+   display: none;
+}
+
+#param5_ivr {
+  display: none;
+}
+
+
+
+
+
+/* PARAMETRO 6 */
+#id_param6 {
+   display: none;
+}
+
+#id_des_param6 {
+   display: none;
+}
+
+#param6_ivr {
+  display: none;
+}
+
+
+/* PARAMETRO 7 */
+#id_param7 {
+   display: none;
+}
+
+#id_des_param7 {
+   display: none;
+}
+
+#param7_ivr {
+  display: none;
+}
+
+
+/* PARAMETRO 1 y 2 HORAS */
+.input_hora {
+
+  width:40px;
+  display: inline;
+}
+
+#id_param1 {
+   display: none;
+}
+
+#id_des_param1 {
+   display: none;
+}
+
+#param1_ivr {
+  display: none;
+}
+
+
+#id_param2 {
+   display: none;
+}
+
+#id_des_param2 {
+   display: none;
+}
+
+#param2_ivr {
+  display: none;
+}
+
+#id_param3 {
+   display: none; 
+}
+
+#id_des_param3 {
+   display: none;
+}
+
+#param3_ivr {
+  display: none;
+}
+
+#id_param4 {
+    display: none; 
+}
+
+#id_des_param4 {
+   display: none;
+}
+
+#param4_ivr {
+  display: none;
+}
+
+
+
+
+</style>
+
+{%endblock%}
+
+
+
+<!-- Formulario del parametros 1 del IVR Intervalo horario manana -->
+  {% ifequal forloop.counter 1 %}
+
+  <a onclick="carga_hora('param1_ivr','id_des_param1','id_param1','id_de_hora_man','id_a_hora_man','id_imagen_des_1');"><img id="id_imagen_des_1" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+
+  <div id="param1_ivr">
+
+       <div id="intervalo_hora_de_manana" class="div_intervalo_horario">
+         De:<input class="input_hora" id="id_de_hora_man" type="text" onkeyup="anade_hora('id_param1','id_de_hora_man');"/>
+          a:<input class="input_hora" id="id_a_hora_man" type="text" onkeyup="anade_hora('id_param1','id_a_hora_man');"/> 
+       </div>
+
+
+     <div id="div_input_param1">  {{par}} </div>
+
+ </div>
+  {%endifequal%}
+
+
+
+
+<!-- Formulario del parametros 2 del IVR Intervalo horario de tarde -->
+  {% ifequal forloop.counter 2 %}
+
+  <a onclick="carga_hora('param2_ivr','id_des_param2','id_param2','id_de_hora_tarde','id_a_hora_tarde','id_imagen_des_2');"><img id="id_imagen_des_2" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+
+  <div id="param2_ivr">
+
+       <div id="intervalo_hora_de_tarde" class="div_intervalo_horario">
+         De:<input class="input_hora" id="id_de_hora_tarde" type="text" onkeyup="anade_hora('id_param2','id_de_hora_tarde');"/>
+          a:<input class="input_hora" id="id_a_hora_tarde" type="text" onkeyup="anade_hora('id_param2','id_a_hora_tarde');"/>
+       </div>
+
+
+     <div id="div_input_param2">  {{par}} </div>
+
+ </div>
+  {%endifequal%}
+
+
+
+
+
+
+
+
+
+<!-- Formulario del parametros 3 del IVR intervalo semanal laborable de turno de manana -->
+  {% ifequal forloop.counter 3 %}
+
+  <a onclick="carga_dias_semana('param3_ivr','id_des_param3','sele_dia_de_manana','sele_dia_a_manana','id_param3','id_imagen_des_3');"><img id="id_imagen_des_3" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+
+  <div id="param3_ivr">
+
+       <div id="" class="div_intervalo_semanal_manana">
+         De:<select id="sele_dia_de_manana" name="sele_dia_de_manana" onchange="anade_dia('sele_dia_de_manana','id_param3');" >
+              <option value="Lunes">Lunes</option>
+              <option value="Martes">Martes</option>
+              <option value="Miercoles">Miercoles</option>
+              <option value="Jueves">Jueves</option>
+              <option value="Viernes">Viernes</option>
+              <option value="Sabado">Sabado</option>
+	      <option value="Domingo">Domingo</option>
+            </select>
+
+
+          a:
+            <select id="sele_dia_a_manana" name="sele_dia_de_manana" onchange="anade_dia('sele_dia_a_manana','id_param3');" >
+              <option value="Lunes">Lunes</option>
+              <option value="Martes">Martes</option>
+              <option value="Miercoles">Miercoles</option>
+              <option value="Jueves">Jueves</option>
+              <option value="Viernes">Viernes</option>
+              <option value="Sabado">Sabado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+
+       </div>
+
+
+     <div id="div_input_param3">  {{par}} </div>
+
+ </div>
+  {%endifequal%}
+
+
+
+
+
+<!-- Formulario del parametros 4 del IVR intervalo semanal laborable de turno de tarde -->
+  {% ifequal forloop.counter 4 %}
+
+  <a onclick="carga_dias_semana('param4_ivr','id_des_param4','sele_dia_de_tarde','sele_dia_a_tarde','id_param4','id_imagen_des_4');"><img id="id_imagen_des_4" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+
+  <div id="param4_ivr">
+
+       <div id="" class="div_intervalo_semanal_tarde">
+       De:<select id="sele_dia_de_tarde" name="sele_dia_de_tarde" onchange="anade_dia('sele_dia_de_tarde','id_param4');" >
+              <option value="Lunes">Lunes</option>
+              <option value="Martes">Martes</option>
+              <option value="Miercoles">Miercoles</option>
+              <option value="Jueves">Jueves</option>
+              <option value="Viernes">Viernes</option>
+              <option value="Sabado">Sabado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+
+        
+          a:
+            <select id="sele_dia_a_tarde" name="sele_dia_de_tarde" onchange="anade_dia('sele_dia_a_tarde','id_param4');" >
+              <option value="Lunes">Lunes</option>
+              <option value="Martes">Martes</option>
+              <option value="Miercoles">Miercoles</option>
+              <option value="Jueves">Jueves</option>
+              <option value="Viernes">Viernes</option>
+              <option value="Sabado">Sabado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+
+
+       </div>
+
+
+     <div id="div_input_param4">  {{par}} </div>
+
+ </div>
+  {%endifequal%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Formulario del parametros 5 del IVR Audio fuera de horario -->
+  {% ifequal forloop.counter 5 %}
+
+ <a onclick="muestra_oculta_div_audio('sele_audio_ivr5','param5_ivr','id_param5','id_des_param5',{{lista_opciones_audio}},{{lista_valores_audio}},'id_imagen_des_5');"><img id="id_imagen_des_5" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+  <div id="param5_ivr">
+
+    <select id="sele_audio_ivr5" name="sele_audio_dia_festivo" onchange="selecciona_audio('sele_audio_ivr5','id_param5');" >
+
+    </select>
+
+     <div id="div_input_param5">  {{par}} </div>
+ </div>
+  {%endifequal%}
+
+
+
+
+
+
+
+
+
+
+ <!-- Formulario del parametros 6 del IVR Audio dia festivo -->
+  {% ifequal forloop.counter 6 %}
+  
+ <a onclick="muestra_oculta_div_audio('sele_audio_ivr6','param6_ivr','id_param6','id_des_param6',{{lista_opciones_audio}},{{lista_valores_audio}},'id_imagen_des_6');"><img id="id_imagen_des_6" src="images/desplegable_mas.png" height="17" width="17" ></a>
+  <div id="param6_ivr">
+ 
+    <select id="sele_audio_ivr6" name="sele_audio_dia_festivo" onchange="selecciona_audio('sele_audio_ivr6','id_param6');" >    
+    
+    </select>
+
+     <div id="div_input_param6">  {{par}} </div>
+ </div>
+  {%endifequal%}
+
+
+
+
+<!-- Formulario del parametros 7 del IVR Audio Menu de opciones -->
+  {% ifequal forloop.counter 7 %}
+
+ <a onclick="muestra_oculta_div_audio('sele_audio_ivr7','param7_ivr','id_param7','id_des_param7',{{lista_opciones_audio}},{{lista_valores_audio}},'id_imagen_des_7');">
+    <img id="id_imagen_des_7" src="images/desplegable_mas.png" height="17" width="17" >           
+ 
+</a>
+
+  <div id="param7_ivr">
+
+    <select id="sele_audio_ivr7" name="sele_audio_dia_festivo" onchange="selecciona_audio('sele_audio_ivr7','id_param7');" >
+
+    </select>
+
+     <div id="div_input_param7">  {{par}} </div>
+ </div>
+  {%endifequal%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Parametro 8 Lista de opciones  FORMATO: "1-nombre_contexto1,2-nombre_contexto2,..." -->
+    {% ifequal forloop.counter 8 %}
+   
+      <!--Boton para mostrar/ocultar formulario del parametro -->  
+       <a onclick="muestra_oculta_div_opc_ivr();"><img id="id_imagen_des_8" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+      <div id="param8_ivr">   
+    
+         <div id="param8_ivr_lista_opciones">
+
+
+              <table id="tabla_opciones_ivr" cellspacing="0" border="1">
+                   <tbody>
+                    <tr> <td>Opción</td> <td>Contexto </td> <td>Extensión </td> <td>Prioridad </td> <td></td>  </tr>
+
+                    <tr> <td><input id="num_opc_ivr" type="text" size="2" readonly value='' 
+                              onfocus="if(this.value=='')this.value=num_opciones('{{par.value}}');" 
+                               onblur="if(this.value=='')this.value=num_opciones('{{par.value}}');"  />
+                         </td> 
+                         <td><select id="sele_contexto_ivr" name="contexto_sele" >
+                             {%for contexto in lista_contextos %}
+                                <option value='{{contexto.value}}' >{{contexto.context}}</option>
+                             {%endfor%}
+                           </select>
+                         </td>
+                         <td><input id="exten_opc_ivr" type="text" size="3" /> </td>
+                         <td><input id="prio_opc_ivr" type="text" size="2" /> </td> 
+                         <td> <a onclick="anade_opcion_ivr('{{par.value}}');"><div id="div_imagen_mod_linea"><img src="images/anadir-icono-linea.png" height="22" width="22"  ></div></a> </td>  
+                    </tr>
+
+                 </tbody>
+              </table>
+            
+             
+                <div id="input_param8">  {{par}} </div>
+         </div>
+ 
+<!--
+        Contexto:
+   
+	<select id="sele_contexto" name="contexto_sele" onchange="carga_yavere();" >
+           {%for contexto in lista_contextos %}
+                   <option value='{{contexto.value}}' >{{contexto.context}}</option>
+           {%endfor%}
+        </select>
+-->
+      </div>
+
+    {%endifequal%}
+
+
+
+
+

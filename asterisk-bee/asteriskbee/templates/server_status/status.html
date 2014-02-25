@@ -1,0 +1,83 @@
+{%extends 'base.html'%}
+
+{% block titulo %}  Estado del sistema {% endblock %}
+
+  {% block head %}
+   
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+    <script type="text/javascript"> 
+       setInterval("fajax2()",5000);
+       setInterval("fajax1()",40000);
+       setInterval("fajax3()",300000);
+       setInterval("fajax4()",60000);
+       setInterval("carga_grafica_cpu()",120000);
+       setInterval("carga_lista_ext_reg()",30000);
+    </script> 
+
+ {% endblock %}
+
+
+
+{% block encabezado  %}
+        <h1>Estado del sistema</h1>
+{% endblock %}
+
+{% block contenido %}
+   
+
+<div id="div_estadisticas_sistema">
+
+  <h3>Estadisticas del sistema</h3>
+  
+
+  <!--  <div id="div_carga_cpu"> --> 
+     {% include 'server_status/carga_cpu.html' %}
+  <!--  </div> -->
+
+  <!-- <div id="div_uso_ram"> -->
+    {% include 'server_status/uso_ram.html' %}
+  <!--  </div> -->  
+
+  <!--  <div id="div_uso_sist_raiz"> -->
+    {% include 'server_status/uso_sist_raiz.html' %}
+  <!--  </div> -->
+ 
+     <h4>Extensiones registradas</h4> 
+    <div id="div_lista_ext_reg">
+          {% include 'server_status/lista_ext_registradas.html' %}
+    </div>
+   
+     
+</div>
+
+
+
+<div id="div_estadisticas_asteriskbee">
+
+  <div id="div_boton_shutdown">
+         <a onclick="shutdown();" class="glyphicon glyphicon-off">Apagar PBX</a>
+   </div>
+  
+  <h3>Estado del sistema</h3>
+
+   <div id="div_llamadas_activas">
+     {% include 'server_status/llamadas_activas.html' %}
+	
+   </div>
+ 
+ 
+   <div id="div_graficas">
+  
+     <div id="div_grafica_uso_cpu">
+       {% include 'server_status/grafica_uso_cpu_dia.html' %}
+     </div>
+  
+   </div>
+  
+
+
+</div>
+
+
+
+{% endblock %}

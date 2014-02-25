@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Consola de Asterisk {% endblock %}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+ {% endblock %}
+
+{% block bodyonload %} 
+    onload='carga_consola()'
+  
+{%endblock%}
+
+
+{% block encabezado  %}
+        <h1>Consola de Asterisk</h1>
+{% endblock %}
+
+{% block contenido %}
+        <p> Consola de Asterisk</p>
+
+  <div id="div_consola">
+
+         {% for linea in salida_consola %}
+                <p>{{linea}}</p>
+      
+         {% endfor %}
+
+         {{salida_consola_error}} 
+         
+  </div>
+  
+ <div id="div_formulario_consola">  
+  
+   <form id="form_consola" method='get' action=''>{% csrf_token %}
+     <div id="div_input_comando">
+       {% include 'consola/form_consola.html' %}
+     </div>
+      <input id="id_historial_comando" type="hidden" value="{{id_comando}}"  />     
+      <input id="id_tam_historial" type="hidden" value="{{tam_historial}}" />      
+   
+  </form>
+	
+  
+ </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+ {% endblock %}
+
+{% block titulo %} AsteriskBee - Extensiones SIP {% endblock %}
+
+{% block encabezado  %}
+        <h1>Extensiones SIP</h1>
+{% endblock %}
+
+{% block contenido %}
+
+  <div id="div_extensiones_sip">
+
+     <div id="div_extensiones_sip_menu">
+        <a href='crear_sip/' class="glyphicon glyphicon-plus">Nueva extension SIP</a>
+     </div>
+
+     <div id="div_extensiones_sip_lista">
+     
+       {% include 'extensiones/sip/lista_ext_sip.html' %}       
+  
+    </div>
+
+ </div>
+
+
+{% endblock %}

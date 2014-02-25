@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+{% endblock %}
+
+
+{% block titulo %} AsteriskBee - Extensiones IAX {% endblock %}
+
+{% block encabezado  %}
+        <h1>Extensiones IAX</h1>
+{% endblock %}
+
+{% block contenido %}
+
+  <div id="div_extensiones_iax">
+
+     <div id="div_extensiones_iax_menu">
+        <a href='crear_iax/' class="glyphicon glyphicon-plus">Nueva extension IAX</a>
+     </div>
+
+     <div id="div_extensiones_iax_lista">
+
+          {% include 'extensiones/iax/lista_ext_iax.html' %}
+
+     </div>
+
+
+
+
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+          
+
+ {%for audio in lista_archivos %}
+ <div class="div_audio" id="div_audio_id_{{audio.id}}">
+
+      <a title="{{audio.descripcion}}">{{ audio.nombre }}</a>
+
+      <div id="div_imagen_borra_audio"><a onclick="borra_audio({{audio.id}});"> <img src="images/borrar-icono-linea.png" height="22" width="22"/></a> </div>
+
+ </div>
+ {%endfor%}
+

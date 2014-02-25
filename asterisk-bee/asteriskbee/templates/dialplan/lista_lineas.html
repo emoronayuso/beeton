@@ -1,0 +1,63 @@
+
+
+
+         
+           {%for linea in lista_lineas %}
+
+                 {%if forloop.first %}
+                    Extensión: {{ linea.exten }}
+                    <div class="div_extension_dialplan">
+                 {%endif%}                 
+
+                   <div class='div_linea' id="div_linea_{{linea.context}}_{{linea.exten}}_{{linea.priority}}" style=" margin: 2px 1px; background-color:
+
+                    {%for api in lista_api %}
+                       {%if linea.appdata == api.script %}      
+                          {{api.color}}    
+                       {%endif%}  
+                    {%endfor%}
+                  ;" onclick="sele_linea({{linea.id}},'div_linea_{{linea.context}}_{{linea.exten}}_{{linea.priority}}');" >
+
+<input type="checkbox" onclick="mod_linea_comentada('{{linea.context}}',{{linea.exten}},{{linea.priority}});" {%if linea.commented == 0%} checked {%endif%}/> <span class="contenido_linea"> -{{linea.priority}}-{{linea.app}}-{{linea.appdata}} </span>
+
+                    <a onclick="borra_linea('{{linea.context}}',{{linea.exten}},{{linea.priority}});"><div id="div_imagen_borra_linea"><img src="images/borrar-icono-linea.png" height="22" width="22"  ></div></a>
+
+
+                    <a href="?context={{contexto}}&id_linea={{linea.id}}"><div id="div_imagen_mod_linea"><img src="images/editar-icono-linea.png" height="22" width="22"  ></div></a>
+
+
+                </div>
+
+               
+
+
+              <!--comparamos la linea actual con la siguiente para ver si hay que cerrar el div o no  -->
+              {% for l in lista_lineas %} 
+                  {% ifequal forloop.parentloop.counter forloop.counter0 %}
+                    {%ifnotequal linea.exten l.exten %}
+                       </div>
+
+                        <p></p>
+                        Extensión: {{l.exten}}
+                       <div class="div_extension_dialplan">
+                    {%endifnotequal%} 
+                  {%endifequal %}             
+              {%endfor%}               
+
+
+
+
+
+            <!-- si es la ultima vez que se recorre el bucle -->
+	   {% if forloop.last%}
+              </div>
+           {%endif%}         
+
+       {%endfor%}
+
+
+    <!-- Recogemos el valor del id de la linea seleccionada -->
+    <input type="hidden" id="input_id_linea_sele" />
+    <input type="hidden" id="input_color_linea_sele" /> 
+    <input type="hidden" id="input_id_div_sele" />
+

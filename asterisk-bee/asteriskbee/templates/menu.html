@@ -1,0 +1,13 @@
+<nav class="container mainMenu">
+  <ul>
+    <!--- <li class="active"><a href="/">Estado del Sistema</a></li> -->
+
+     {% for c in categorias %}
+             
+  		<li>  <a class="btn" href="{{c.get_absolute_url}}"><span id="icono_menu" class="{{c.icono}}">{{c.nombre}} </span></a> </li>
+             
+  	{% empty %}
+  		<li>No existen categorias creadas.</li>
+     {% endfor %}
+  </ul>
+</nav>

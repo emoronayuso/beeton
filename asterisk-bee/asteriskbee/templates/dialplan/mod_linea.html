@@ -1,0 +1,22 @@
+<style type="text/css">
+   #div_dialplan_botones{
+     position: absolute !important;
+   }
+
+</style>
+
+
+<div id="div_form_mod_linea">
+
+
+
+   <form method="post" action="">{% csrf_token %}
+
+	{% include 'dialplan/form_mod_linea.html' %}
+
+       <input id="boton_submit_form_mod_linea" type='submit' value='Modificar linea' />
+
+   </form>
+
+
+</div>

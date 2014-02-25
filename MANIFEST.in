@@ -1,0 +1,17 @@
+include LICENSE
+include asterisk-bee/asteriskbee *
+include asterisk-bee *
+recursive-include asterisk-bee/asteriskbee/templates *
+recursive-include asterisk-bee/asteriskbee/api_admin_audio *
+recursive-include asterisk-bee/asteriskbee/api_admin_func *
+recursive-include asterisk-bee/asteriskbee/api_cdr *
+recursive-include asterisk-bee/asteriskbee/api_colas_llamadas *
+recursive-include asterisk-bee/asteriskbee/api_consola *
+recursive-include asterisk-bee/asteriskbee/api_dialplan *
+recursive-include asterisk-bee/asteriskbee/api_extensiones *
+recursive-include asterisk-bee/asteriskbee/api_menu *
+recursive-include asterisk-bee/asteriskbee/api_musica_espera *
+recursive-include asterisk-bee/asteriskbee/api_status *
+recursive-include docs *
+recursive-include files *
+include asterisk-bee/*

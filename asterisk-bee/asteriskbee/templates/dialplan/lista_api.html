@@ -1,0 +1,15 @@
+
+<p>Lista de aplicaciones:
+
+     <select id="lista_apli" name="apli_sele" onchange="carga_api();" >
+                <option value='{{id_api}}' selected="selected">{{nombre_api}}</option>
+        {%for app in lista_api %}
+                {%ifnotequal app.id id_api%}
+                   <option value='{{app.id}}' >{{app.nombre}}</option>
+        	{%endifnotequal%}
+        {%endfor%}
+     </select>
+
+
+
+

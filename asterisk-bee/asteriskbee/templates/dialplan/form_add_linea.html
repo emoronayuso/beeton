@@ -1,0 +1,61 @@
+<style type="text/css">
+   #div_dialplan_botones{
+     position: absolute !important;
+   }
+
+</style>
+
+
+
+Añadir nueva linea
+<p>
+{{linea_form}}
+
+{{aplicacion_form.script}}
+
+ {% include 'dialplan/lista_api.html' %}
+
+
+<p>    Descripcion: {{aplicacion_form.descripcion}}
+
+
+{% for par in param_form %}
+
+            {%if forloop.counter <= num_param %}
+                 <div id="div_param">
+
+                 {%for nom_para in aplicacion_nom_param_form %} 
+                       {%ifequal forloop.parentloop.counter forloop.counter %}
+                         <style type="text/css"> #id_{{nom_para.name}} { border:none; background-color: transparent; width: {{nom_para.value|length}}ex; } </style>
+                           {{nom_para}}:
+                       {%endifequal%}
+                 {%endfor%}
+
+
+
+{%for bit_act_temp in aplicacion_temp_param_form%}
+                    {%ifequal forloop.parentloop.counter forloop.counter %}
+                         {%ifequal bit_act_temp.value 1 %}
+                           {%include aplicacion_form.nom_arch_temp.value %}
+                         {%else%}
+                             {{par}}
+                         {%endifequal%}
+                    {%endifequal%}
+                 {%endfor%}
+
+
+                {%for des_para in aplicacion_des_param_form %}
+                       {%ifequal forloop.parentloop.counter forloop.counter %}
+                           <style type="text/css"> #id_{{des_para.name}} { border:none; background-color: transparent; width: {{des_para.value|length}}ex; } </style>
+                          <div id="div_des_param">  {{des_para}} </div>
+                       {%endifequal%}
+                {%endfor%}
+
+            </div>
+            {%endif%}
+
+    {%endfor%}
+
+
+
+

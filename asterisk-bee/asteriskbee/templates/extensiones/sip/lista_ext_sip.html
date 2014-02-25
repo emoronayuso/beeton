@@ -1,0 +1,10 @@
+
+ <ul>
+   {%for key, value in mapa_extensiones_sip.items %}
+      <li><a href="mod_sip/?id={{key}}">{{ value }}</a>
+          <a onclick="borra_sip({{key}},'{{value}}');"><div id="div_imagen_borra_sip"><img src="images/borrar-icono-linea.png" height="22" width="22"  ></div></a>
+     </li>
+   {%endfor%}
+ </ul>
+
+

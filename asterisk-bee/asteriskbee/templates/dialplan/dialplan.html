@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Dialplan {% endblock %}
+
+{% block encabezado  %}
+        <h1>Plan de llamada</h1>
+{% endblock %}
+
+{% block contenido %}
+
+  <div id="div_dialplan">
+
+     <div id="div_dialplan_menu">
+        <a href='crear_contexto/' class="glyphicon glyphicon-plus">Nuevo contexto</a>
+     </div>
+
+     <div id="div_dialplan_lista">
+
+	<ul>
+        {%for key,valor in mapa_contextos.items %}
+          <li><a href="mod_contexto/?context={{valor}}">{{ valor }}</a></li>
+        {%endfor%}
+        </ul>
+     
+
+     </div>
+
+
+
+
+  </div>
+
+
+{% endblock %}
+

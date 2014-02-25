@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Administrador de ficheros de audio {% endblock %}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+ {% endblock %}
+
+
+{% block encabezado  %}
+        <h1>Administrador de ficheros de audio</h1>
+{% endblock %}
+
+
+
+
+{% block contenido %}
+
+  <div id="div_admin_fich_audio">
+
+   
+    <div id="div_form_admin_fich_audio">
+         <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+
+              {{form_upload_audio}}
+
+          <input class="btn btn-default" id="boton_submit_form_sube_fiche_audio" type='submit' value='Subir archivo GSM' />
+    
+        </form>
+    
+        <span class="glyphicon glyphicon-share-alt"><a href="http://my.digium.com/en/products/ivr/audio-converter/" >Enlace al convertidor de audio de DIGIUM</a></span>
+    </div>
+
+
+     <div id="div_lista_fich_audio">
+         
+          {% include 'admin_audio/lista_audio.html' %}
+ 
+     </div>
+
+
+
+
+  </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{% block titulo %} Bienvenido {% endblock %}
+
+{% block encabezado  %}
+        <h1>Bienvenido</h1>
+{% endblock %}
+
+{% block contenido %}
+        <p>Bienvenido {{usuario.username|upper}},
+	    la ultima vezque te vimos por aqui fue el {{usuario.last_login}}</p>
+{% endblock %}
+

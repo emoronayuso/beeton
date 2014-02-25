@@ -1,0 +1,8 @@
+%CPU CPU  NI S     TIME COMMAND
+ 0.1   -   0 S 00:00:00 sshd: root@pts/3 
+ 0.1   -   0 S 00:00:05 -bash
+ 0.2   -   0 S 00:00:07 sshd: root@pts/2 
+ 0.2   -   - S 00:03:30 /usr/sbin/asterisk -p -U asterisk
+ 0.3   -   0 S 00:00:02 -bash
+ 0.6   -   0 S 00:00:24 top
+ 5.3   -   0 S 00:03:26 /usr/bin/python manage.py runserver 0.0.0.0:8000

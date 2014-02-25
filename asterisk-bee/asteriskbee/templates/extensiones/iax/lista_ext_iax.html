@@ -1,0 +1,8 @@
+ <ul>
+   {%for key, value in mapa_extensiones_iax.items %}
+     <li><a href="mod_iax/?name={{key}}">{{ value }}</a>
+         <a onclick="borra_iax({{key}},'{{value}}');"><div id="div_imagen_borra_iax"><img src="images/borrar-icono-linea.png" height="22" width="22"  ></div></a>
+     </li>
+   {%endfor%}
+ </ul>
+

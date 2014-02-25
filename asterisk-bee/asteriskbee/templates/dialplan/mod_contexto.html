@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+ {% endblock %}
+
+
+
+{% block titulo %} AsteriskBee - Dialplan {% endblock %}
+
+
+
+{% block encabezado  %}
+        <h1>Plan de llamadas</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<div id="div_dialplan_nombre_contexto">
+   <h4 class="glyphicon glyphicon-align-left" >Contexto {{contexto}} </h4>
+</div>
+
+  <div id="div_dialplan_mod_contexto">
+        <div id="div_dialplan_menu_mod_contexto">
+      
+        </div>
+
+        <div id="div_dialplan_lineas_contexto">
+
+            {% include 'dialplan/lista_lineas.html' %}
+   
+        </div>
+
+	<div id="div_dialplan_botones">
+	   {% include 'dialplan/form_botones_contexto.html' %} 
+	</div>
+
+
+	{% if linea %}
+             <div id="div_dialplan_mod_linea">
+                 {% include 'dialplan/mod_linea.html' %}
+             </div>
+          {% else%}
+
+               {% if add_linea %}
+	           <div id="div_add_nueva_linea">
+		      {% include 'dialplan/add_linea.html' %}
+		   </div>
+               {%endif%}
+
+        {%endif%}
+
+        
+
+
+  </div>
+
+
+{% endblock %}
+

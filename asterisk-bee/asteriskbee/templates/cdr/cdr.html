@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %} REGISTRO DE LLAMADAS {% endblock %}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+ {% endblock %}
+
+
+{% block encabezado  %}
+        <h1>Registro de llamadas</h1>
+{% endblock %}
+
+
+{% block contenido %}
+
+   
+  {% include 'cdr/formulario_busqueda_cdr.html' %}
+
+       <div id="div_registro_llamadas">
+	 {% if lista_registros %}
+
+	   {% include 'cdr/registro_de_llamadas.html' %}           
+
+	  {%else%}
+                {{msg}}
+		<p>No existe ningun registro de llamada que cumpla con ese patron de busqueda
+
+	  {%endif%}
+       </div>
+
+{% endblock %}
+

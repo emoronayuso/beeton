@@ -1,0 +1,39 @@
+{%extends 'login_base.html'%}
+
+{% block titulo %} Login AsteriskBee {% endblock %}
+
+{% block encabezado  %}
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+	<div id="formulario_logueo">
+ 
+           <div id="logo_login_beeton">
+              <img src="images/logo_beeton.png">
+          </div>
+
+
+
+           <form id='formulario' method='post' action=''>{% csrf_token %}
+	      <table> {{formulario}} </table>
+	      <p><input type='submit' value='Login' class="btn btn-default" /></p>
+	   </form>
+             
+
+            {% block errores_de_logueo %}
+             {% if errores %}
+                <div id="error_login">
+                    <span class= "alert alert-danger" >El usuario y/o la clave son incorrectas</span>
+                </div>
+             {% endif %}
+           {% endblock%}
+ 
+              
+        </div>
+
+{% endblock %}
+

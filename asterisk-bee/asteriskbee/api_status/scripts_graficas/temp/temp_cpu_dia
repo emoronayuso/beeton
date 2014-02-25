@@ -1,0 +1,5 @@
+%CPU CPU  NI S     TIME COMMAND
+ 0.2   -   - S 00:02:41 /usr/sbin/asterisk -p -U asterisk
+ 0.9   -   0 S 00:00:00 sshd: root [net] 
+15.6   -   0 S 00:00:03 sshd: root [priv]
+87.6   -   0 S 00:00:02 python /home/asterisk-bee/asteriskbee/api_status/scripts_graficas/recoge_marcas_graficas.py

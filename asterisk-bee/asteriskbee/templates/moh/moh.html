@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+
+{% block titulo %} AsteriskBee - Administrador de ficheros de audio {% endblock %}
+
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+ {% endblock %}
+
+
+{% block encabezado  %}
+        <h1>Música en espera</h1>
+{% endblock %}
+
+
+{% block contenido %}
+
+ <div id="div_admin_moh">
+
+
+    <div id="div_lista_moh">
+
+          {% include 'moh/lista_moh.html' %}
+
+     </div>
+
+ 
+
+    <div id="div_form_moh">
+         <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+
+              {%for ite in form_upload_audio %}
+                  {%if ite.errors %}  <div class="alert alert-danger"> {%endif%}
+                      <div >
+                      {{ite.label_tag}}: {{ite}}
+                     </div>
+                  {%if ite.errors %} </div> {%endif%}
+                 <p></p>
+	      {%endfor%}
+              
+          <input id="boton_submit_form_sube_fiche_audio" class="btn btn-default" type='submit' value='Subir archivo mp3' />
+
+        </form>
+    </div>
+
+
+
+ </div>
+
+
+{% endblock %}
+
+
+

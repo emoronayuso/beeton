@@ -1,0 +1,32 @@
+
+<div id="div_form_busqueda_cdr">
+
+<!--   <a href="/asteriskbee-setup/cdr/?contexto=usuarios">pincha aqui</a> -->
+   
+
+  <!-- incluimos el tag {% csrf_token %} dentro del formulario. Esto crea un elemento input oculto con un token único que se verifica al enviar datos al servidor, si este no coincide, se produce un error 403 (prohibido) y tenemos una app algo mas segura. -->
+
+<form id="form_busqueda_cdr" method='get' action=''>{% csrf_token %}
+
+  <div id="div_campos_formulario_cdr">
+    Fecha Inicio:<input type="date" name="fecha_inicio"/>
+    Fecha Fin:<input type="date" name="fecha_fin" />
+   {{formulario}}   
+  </div>
+
+     <div id="div_imagen_genera_pdf">
+     <!--   <a onclick="genera_pdf('1');" > -->
+       <a onclick="envia_form();">
+  <!--        <a href='#' onclick="genera_pdf(1);"> -->
+     <!--  <a onclick="genera_pdf(1)"> -->
+          <img src="images/pdf_icono.png" height="22" width="22" />Generar informe en pdf
+       </a>
+     </div> 
+
+
+    <input type="hidden" id="genera_pdf" name="genera_pdf" value="0" />
+	
+  <p><input type='submit' value='Buscar' class="btn btn-default" /></p>
+</form>
+
+</div>

@@ -1,0 +1,66 @@
+<!--
+
+ AYUDA PARA DEFINIR PLANTILLA DE PARAMETROS:
+ 
+ Podemos usar las siguientes variables de las plantillas.
+
+ {{par}} -> Valor del parametro string con el formato determinado que hay que enviar.
+  id del input con los valores string de los parametros -> FORMATO: 'id_paramX' [X numero del parametro]
+
+
+ {{linea_form }}      -> formulario de una linea del dialplan
+
+ {{forloop.counter}}  -> Numero del parametro actual
+
+ {{aplicacion_form}}  -> Formulario de la aplicacion
+
+ {{lista_contextos}}  -> Listado de los contextos creados
+
+ {{mapa_audios}}          -> Mapa de audios FORMATO: mapa_audio[nombre] : [opcion_para_asterisk]
+ {{lista_valores_audio}}  ->
+ {{lista_opciones_audio}} ->
+
+ {{lista_moh}} -> Lista de ficheros de musica en espera
+
+-->
+
+
+{% block head%}
+
+<style type="text/css">
+
+#id_param1 {
+   display: none;
+}
+
+
+#id_des_param1 {
+   display: none;
+}
+
+#param1_moh {
+  display: none;
+}
+
+
+</style>
+
+{% endblock %}
+
+
+<!-- Formulario del parametros 1 de la musica en espera -->
+  {% ifequal forloop.counter 1 %}
+
+    <!-- esto se hace para seleccionar el parametro por defecto del select-->
+    <!-- muestra_oculta_div_moh(id_sele_moh,id_div,id_param,id_des_param,lista_opciones,id_imagen_des)  -->
+    <a onclick="muestra_oculta_div_moh('sele_audio_moh','param1_moh','id_param1','id_des_param1',{{lista_moh}},'id_imagen_des_1');"><img id="id_imagen_des_1" src="images/desplegable_mas.png" height="17" width="17" ></a>
+
+
+  <div id="param1_moh">
+
+    <select id="sele_audio_moh" name="sele_audio_moh" onchange="selecciona_moh('sele_audio_moh','id_param1');" >
+    </select>
+
+     <div id="div_input_param1">  {{par}} </div>
+ </div>
+  {%endifequal%}

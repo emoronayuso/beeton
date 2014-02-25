@@ -1,0 +1,86 @@
+
+#div_estadisticas_sistema {
+  border: solid 1px #C4C4C4;
+  width: 30%;
+  min-height: 500px;
+  float: right;
+  background-color: #EAEAEA;
+  padding: 10px;
+}
+
+#div_estadisticas_asteriskbee{
+ /* border: solid 2px #990000; */
+  width: 70%;
+  height: auto;
+  float: left;
+ /*  background-color: #E0FFB8; */
+ padding: 8px;
+}
+
+#div_lista_ext_reg {
+ min-height: 100px;
+ width: 100%;
+ padding: 2px;
+ margin: 4px 0px;
+ background-color: #FFFFFF;
+}
+
+#div_lista_ext_reg span{
+ display: block;
+}
+
+#div_lista_ext_reg img{
+ display: inline;
+ 
+}
+
+#div_boton_shutdown {
+ float: right;
+ cursor: pointer;
+}
+
+
+#div_num_llamadas_activas{
+  /* border: solid 2px #990000; */
+  
+}
+
+#div_num_canales_activos{
+
+ /* border: solid 2px #990000; */
+
+}
+
+/*
+
+div.box{
+   width:250px;
+   border:1px solid #000;
+   height:17px;
+   margin:2px 0;
+   background:#CCC
+}
+
+
+div.bar{
+   height:14px;
+   line-height:11px;
+   color:#FFF;
+   text-align:right;
+   padding:3px 0 0 0
+}
+*/
+
+/*Barra de porcentaje con imagen */
+/*
+.bg-img{
+   background:url(/images/percentage-bg.png)
+}
+*/
+
+/* Barra de porcentaje sin imagen */
+/*
+.bg-one{
+  background:#00CC00
+}
+*/ 

@@ -1,0 +1,80 @@
+{% block head %}
+
+    <script type="text/javascript" src="/js/refresca_div.js"> </script>
+
+     <style type="text/css">
+
+       #div_contenedor_opc_a_iax {
+            display: none;
+        }
+    </style>
+
+
+ {% endblock %}
+
+
+<div id="div_form_crea_iax_user_per">
+        <span class="glyphicon glyphicon-user"> Información Personal</span>
+         <hr />
+
+         {% ifequal usuario_existe 1 %}
+             <span style='color: red;'>Ya existe un usuario con esa extension</span>
+         {%endifequal%}
+
+         {% for ite in formulario_iax_user_per.visible_fields %}
+           {%ifequal ite.name "name"  %}
+              {{ ite.label_tag }} <input id="id_name" maxlength="80" name="name" type="text" value="{{username}}" onkeyup="document.getElementById('id_username').value=this.value;" onblur="document.getElementById('id_username').value=this.value;" {%ifequal mod_iax 1 %} readonly="readonly" {%endifequal%} /> {{ite.errors}}
+             {% else %}
+                {%ifequal ite.name "secret" %}
+                   {{ ite.label_tag }} <input id="id_secret_mod" maxlength="80" name="secret" type="password" value="{{secret}}" />
+                  {% else %}
+
+                {{ ite.label_tag }} {{ite}} {{ite.errors}}
+               {% endifequal %}
+           {% endifequal %}
+        {%endfor%}
+
+       </div>
+
+
+
+<div id="div_form_crea_iax_user_aco">
+           <span class="glyphicon glyphicon-earphone">Información de la cuenta</span>
+           <hr />
+
+         {% if not pass_ok %}
+             <span style='color: red;'>La confirmación de clave es incorrecta</span>
+         {%endif%}
+
+        {% for ite in formulario_iax_user_aco.visible_fields %}
+
+             {%ifequal ite.name "secret" %}
+                  {{ ite.label_tag }} <input id="id_secret" maxlength="80" name="secret" type="password" value="{{secret}}" onkeyup="document.getElementById('id_confirma').value='';"  />
+                  {% for ite2 in formulario_confi_pass.visible_fields %}
+                        {{ ite2.label_tag }} <input id="id_confirma" name="confirma" type="password" value="{{secret}}"/> {{ite2.errors}}
+                 {%endfor%}
+
+              {%else%}
+                 {{ ite.label_tag }} {{ite}} {{ite.errors}}
+             {%endifequal%}
+
+        {%endfor%}
+
+</div>
+
+
+
+
+   <div id="div_form_crea_iax_option">
+        <span class="glyphicon glyphicon-cog">Opciones Avanzadas<a onclick="muestra_oculta_opc_a_ext('iax');"><img id="id_imagen_des_opc_a" src="images/desplegable_mas.png" height="17" width="17" ></a></span>
+
+         <hr />
+            <div id="div_contenedor_opc_a_iax">       
+              {{formulario_iax_option.subject.errors}}
+
+              {{ formulario_iax_option }}
+            </div>
+      </div>
+
+
+

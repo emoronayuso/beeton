@@ -1,0 +1,60 @@
+{% load api_menu_extras %} <!-- Cargamos el tag -->
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+   <title>{% block titulo %}{% endblock %}</title>
+   <link href="/css/base.css" rel="stylesheet" type="text/css"/>
+   <link href="/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+   {% block head %}
+   
+
+   {% endblock %}
+
+   
+</head>
+<body>
+
+<div id="cabecera">
+   <div id="logo_beeton"> <img src="images/logo_beeton.png"> </div>
+   <!-- <h1>{% block encabezado %} {% endblock %}</h1> -->
+    <div id="botones_cabecera">
+        <a class="glyphicon glyphicon-log-out" href='/cerrar/'><span>Logout</span></a>
+    </div>
+</div>
+
+
+ <div id="wrapper">
+   <div id="menu">
+
+     <div class="container">
+          {% getCategorias %}  <!-- llamamos al tag que hemos creado -->
+     </div>
+
+   </div>
+
+
+   <div id="contenido">
+      {% block contenido %}
+
+
+      {% endblock %}
+
+  </div>
+
+</div>
+
+<div id="pie">
+  {% block footer %}
+
+   <p>Administracion basica de Asterisk</p>
+  {% endblock %}
+</div>
+
+</body>
+</html>

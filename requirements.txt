@@ -1,0 +1,3 @@
+#Lista de dependencias del proyecto Beeton
+
+matplotlib==1.2.1
