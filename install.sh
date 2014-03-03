@@ -145,6 +145,8 @@ mkdir bbdd
 cd bbdd
 ln -s /var/log/asterisk/master.db cdr.db
 
+cd $dir_insta/asterisk-bee/asteriskbee/api_admin_audio
+ln -s /var/lib/asterisk/sounds/en sonidos
 
 ####################################################################################
 
