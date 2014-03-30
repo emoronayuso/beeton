@@ -13,9 +13,9 @@ El script de instalacion incluye:
 
 - Django 1.5.5
 
-- Panel de adminsitracion Beeton
+- Panel de administracion Beeton
 
 
 Nota importante!!
-La instalacion solo se ha probado en un SO Debian 7 Wheezy.
+La instalacion solo se ha probado en un SO Debian 7 Wheezy (De momento).
 
