@@ -6,7 +6,7 @@
 
  {% endblock %}
 
-{% block titulo %} Beeton - Extensiones SIP {% endblock %}
+{% block titulo %} AsteriskBee - Extensiones SIP {% endblock %}
 
 {% block encabezado  %}
         <h1>Extensiones SIP</h1>
