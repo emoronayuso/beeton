@@ -107,60 +107,69 @@ class aplicaciones(models.Model):
 	###Formato: '#FF0000' ################
 	color = models.CharField(max_length=9,blank=True) 
 
+	##Lineas separadas por '/' que se incluiran en el archivo /etc/asterisk/extensions.conf
+	lineas_extensions_conf = models.CharField(max_length=500,null=True)
+	####Bandera para indicar que la aplicacion influye a TODAS las lineas del contexto, y aparecera en las opciones del contexto en vez de en la linea del dialplan, por defecto no lo es '0'
+	es_opcion_contexto = models.CharField(max_length=1,default='0',null=True)
+
+	#Texto descriptivo de la opcion del contexto
+	texto_opcion_contexto = models.CharField(max_length=200,null=True)
+
+
 	###Nombre del archivo html de la plantilla##### Guardado en templates/dialplan/temp_api_instaladas/ ##
-	nom_arch_temp = models.CharField(max_length=80,blank=True)
+	nom_arch_temp = models.CharField(max_length=80,blank=True,null=True)
 
 	##############Nombre de cada uno de los parametros de la aplicacion y sus textos de ayuda########
 	################################################################################################
 	#####Nombre,descripcion y bit de activacion de template del Parametro 1######
-	nom_param1 = models.CharField(max_length=80,blank=True)
-	des_param1 = models.CharField(max_length=200,blank=True)
-	temp_param1 = models.CharField(max_length=1,default='0')
+	nom_param1 = models.CharField(max_length=80,blank=True,null=True)
+	des_param1 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param1 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 2######
-	nom_param2 = models.CharField(max_length=80,blank=True)
-	des_param2 = models.CharField(max_length=200,blank=True)
-	temp_param2 = models.CharField(max_length=1,default='0')
+	nom_param2 = models.CharField(max_length=80,blank=True,null=True)
+	des_param2 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param2 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 3######
-	nom_param3 = models.CharField(max_length=80,blank=True)
-	des_param3 = models.CharField(max_length=200,blank=True)
-	temp_param3 = models.CharField(max_length=1,default='0')
+	nom_param3 = models.CharField(max_length=80,blank=True,null=True)
+	des_param3 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param3 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 4######
-	nom_param4 = models.CharField(max_length=80,blank=True)
-	des_param4 = models.CharField(max_length=200,blank=True)
-	temp_param4 = models.CharField(max_length=1,default='0')	
+	nom_param4 = models.CharField(max_length=80,blank=True,null=True)
+	des_param4 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param4 = models.CharField(max_length=1,default='0',null=True)	
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 5######
-	nom_param5 = models.CharField(max_length=80,blank=True)
-	des_param5 = models.CharField(max_length=200,blank=True)
-	temp_param5 = models.CharField(max_length=1,default='0')
+	nom_param5 = models.CharField(max_length=80,blank=True,null=True)
+	des_param5 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param5 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 6######
-	nom_param6 = models.CharField(max_length=80,blank=True)
-	des_param6 = models.CharField(max_length=200,blank=True)
-	temp_param6 = models.CharField(max_length=1,default='0')
+	nom_param6 = models.CharField(max_length=80,blank=True,null=True)
+	des_param6 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param6 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 7######
-	nom_param7 = models.CharField(max_length=80,blank=True)
-	des_param7 = models.CharField(max_length=200,blank=True)
-	temp_param7 = models.CharField(max_length=1,default='0')
+	nom_param7 = models.CharField(max_length=80,blank=True,null=True)
+	des_param7 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param7 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 8######
-	nom_param8 = models.CharField(max_length=80,blank=True)
-	des_param8 = models.CharField(max_length=200,blank=True)
-	temp_param8 = models.CharField(max_length=1,default='0')
+	nom_param8 = models.CharField(max_length=80,blank=True,null=True)
+	des_param8 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param8 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 9######
-	nom_param9 = models.CharField(max_length=80,blank=True)
-	des_param9 = models.CharField(max_length=200,blank=True)
-	temp_param9 = models.CharField(max_length=1,default='0')
+	nom_param9 = models.CharField(max_length=80,blank=True,null=True)
+	des_param9 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param9 = models.CharField(max_length=1,default='0',null=True)
 
 	#####Nombre,descripcion y bit de activacion de template del Parametro 10######
-	nom_param10 = models.CharField(max_length=80,blank=True)
-	des_param10 = models.CharField(max_length=200,blank=True)
-	temp_param10 = models.CharField(max_length=1,default='0')
+	nom_param10 = models.CharField(max_length=80,blank=True,null=True)
+	des_param10 = models.CharField(max_length=200,blank=True,null=True)
+	temp_param10 = models.CharField(max_length=1,default='0',null=True)
 	
 	def __str__(self):
 		return 'API -> %s, con %s parametros - script => %s' % (self.nombre, self.num_para, self.script)
