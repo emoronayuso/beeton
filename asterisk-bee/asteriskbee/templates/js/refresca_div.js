@@ -488,8 +488,10 @@ function borra_app(nombre_app) {
 }
 
 
+function borra_opcion_contexto(contexto,id_api) {
+  alert("Esta opción aún no esta implementada!");
+}
+
+
 
 /*Incluimos los fichero javascript de las api instaladas */
-document.write("<script src = '/js/ivr.js' language = 'JavaScript' type = 'text/javascript'></script>");
-/* document.write("<script src = '/js/moh.js' language = 'JavaScript' type = 'text/javascript'></script>"); */
-document.write("<script src = '/js/moh.js' language = 'JavaScript' type = 'text/javascript'></script>");

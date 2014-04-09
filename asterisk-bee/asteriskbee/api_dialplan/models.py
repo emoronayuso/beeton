@@ -172,7 +172,28 @@ class aplicaciones(models.Model):
 	temp_param10 = models.CharField(max_length=1,default='0',null=True)
 	
 	def __str__(self):
-		return 'API -> %s, con %s parametros - script => %s' % (self.nombre, self.num_para, self.script)
+		return unicode('API -> %s, con %s parametros - script => %s' % (self.nombre, self.num_para, self.script))
+
+
+class aplicacion_opcion_contexto(models.Model):
+
+	#Relacion con la tabla aplicaciones
+	id_api = models.ForeignKey('aplicaciones', db_column='id_api')
+	#script_api = models.CharField(max_length=80,blank=True)  
+
+	contexto = models.CharField(max_length=80)
+
+	class Meta:
+		##Indicamos la restriccion, de que las tuplas id_api y contexto deben ser unicas para evitar la misma opcion de duplique en un mismo contexto
+		unique_together = ("id_api","contexto")		
+
+
+class api_opcion_contexto_param(models.Model):
+	
+	id_api_opc_contexto = models.ForeignKey('aplicacion_opcion_contexto', db_column='id_api_opc_contexto')
+
+	##O conjunto de parametros, depende de la api, separados por algun caracter especial	
+	parametro = models.CharField(max_length=200)
 
 
 ##Modelo parametros para la gestion de los parametros de las funcionalidades del dialplan

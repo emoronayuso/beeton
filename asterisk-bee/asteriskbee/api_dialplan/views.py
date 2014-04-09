@@ -37,7 +37,7 @@ import pdb
 
 import subprocess
 
-
+import os
 
 #Funcion que muestra la lista de las extensiones sip
 @login_required(login_url='/login')
@@ -80,7 +80,7 @@ def add_contexto(request):
 		        ###usara la configuracion de la base de datos del Realtime
 			
 			##Creamos el manejador de ficheros en modo anadir 'a'
-			fichero_extensions = open('/etc/asterisk/extensions.conf', 'a')		        
+			fichero_extensions = open('/etc/asterisk/beeton_extensions.conf', 'a')		        
 
 			contexto = request.POST.get('context')
 			
@@ -113,9 +113,21 @@ def add_contexto(request):
 @login_required(login_url='/login')
 def mod_contexto(request):
 
+	#Lista de posibles errores
+	errores = []
+
 	##Lo primero sera listar las lineas del contexto selecciondo
 
 	contexto_sele = request.GET.get('context')
+
+	#Informacion sobre las opciones que afectan a todas las extensiones definidas en el contexto
+	opciones_contexto = [] 
+
+	lista_api_op_cont = aplicacion_opcion_contexto.objects.filter(contexto=contexto_sele)
+	for api in lista_api_op_cont:
+		par = api_opcion_contexto_param.objects.get(id_api_opc_contexto=api.id)
+		opciones_contexto.append(api.id_api.texto_opcion_contexto+par.parametro)
+
 
 	##Realizamos una consulta de todas las lineas que tienen el contexto seleccionado
 	lineas_sele = linea.objects.filter(context=contexto_sele)
@@ -295,6 +307,69 @@ def mod_contexto(request):
 			values_post = request.POST.copy()
 			values_post.__setitem__('context',request.GET.get('context'))
 			values_post.__setitem__('appdata',request.POST.get('script'))
+			
+			###Aqui tendria que incluir una condicion para saber que tipo de funcionalidad es: opcion_contexto o no
+			##Sacamos la api seleccionada
+			api_sele = aplicaciones.objects.get(script=request.POST.get('script'))
+
+#####################################################Se incluye opcion contexto#############################
+			if api_sele.es_opcion_contexto == 1:
+				##Aqui es donde tendria que incluir las lineas en el fichero del plan de llamadas
+				#pdb.set_trace()
+				
+				##Miramos que dicho contexto no tenga ya la opcion
+				if aplicacion_opcion_contexto.objects.filter(contexto=contexto_sele,id_api=api_sele.id).count() == 0  :
+					##Guardamos en la base de datos la inclusion de la opcion para dicho contexto
+					api_opc_context = aplicacion_opcion_contexto(id_api=api_sele, contexto=contexto_sele)
+					api_opc_context.save()
+					api_opc_context = aplicacion_opcion_contexto.objects.get(id_api=api_sele, contexto=contexto_sele)
+					#Y ahora guaradamos los parametros asociados a la nueva opcion del contexto si son correctos
+					parametros_form = parametrosLineaContextoForm(request.POST)
+					if parametros_form.is_valid() :
+						##Si los parametros son validos
+						for num in range(1,(api_sele.num_para)+1):
+							# parametros_form.cleaned_data['paramX']
+							#pdb.set_trace()
+							api_op_cont_par = api_opcion_contexto_param(id_api_opc_contexto=api_opc_context, parametro=parametros_form.cleaned_data['param'+str(num)])
+							api_op_cont_par.save()
+			
+					# Y por ultimo incluimos la linea en el archivo /etc/beeton_extensions.conf	
+				
+					fichero_extensions_r = open('/etc/asterisk/beeton_extensions.conf', 'r')
+					fichero_extensions_w = open('/etc/asterisk/beeton_extensions.conf.B', 'w')
+					
+					for lin in fichero_extensions_r.readlines():
+						if lin == "["+contexto_sele+"]\n":
+							fichero_extensions_w.write(lin)
+							fichero_extensions_w.write(api_sele.lineas_extensions_conf)			
+						else:
+							fichero_extensions_w.write(lin)
+
+
+					fichero_extensions_r.close()
+					fichero_extensions_w.close()
+			
+					fichero_extensions_r = open('/etc/asterisk/beeton_extensions.conf.B', 'r')
+					fichero_extensions_w = open('/etc/asterisk/beeton_extensions.conf', 'w')
+
+					for lin in fichero_extensions_r.readlines():
+						fichero_extensions_w.write(lin)
+
+					fichero_extensions_r.close()
+					fichero_extensions_w.close()
+
+					#Borramos el fichero beeton_extensions.conf.B
+					os.system('rm /etc/asterisk/beeton_extensions.conf.B')
+				else:
+				 ##El contexto ya tiene dicha opcion
+					errores.append('El contexto '+contexto_sele+' ya tiene la opcion: '+api_sele.nombre)  
+
+
+				return HttpResponseRedirect('/admin/dialplan/mod_contexto/?context='+contexto_sele)	 
+
+########################################################################################
+			########Realizar todo lo que viene abajo si la api no es opcion_contexto
+
 			num_lineas = linea.objects.filter(context=request.GET.get('context'),exten=request.POST.get('exten')).count()
 
 			#pdb.set_trace()
@@ -354,7 +429,7 @@ def mod_contexto(request):
 ###################################################################################################################
 
 
-        return render_to_response('dialplan/mod_contexto.html',{'lista_moh':lista_moh,'lista_valores_audio': lista_valor_ast,'lista_opciones_audio' : lista_opciones, 'mapa_audios' : mapa_audio ,'id_api': id_api,'lista_contextos':lista_contextos, 'nombre_api': nombre_api, 'aplicacion_des_param_form':aplicaciones_des_param_form,'aplicacion_nom_param_form':aplicacion_nom_param_form,'aplicacion_temp_param_form': aplicacion_acti_temp_param_form,'num_param':num_param,'param_form' :parametros_form, 'lista_api': lista_api, 'add_linea': add_linea ,'aplicacion_form': aplicacion_form, 'linea_form': linea_form,'linea': linea_sele,'lista_lineas' : lineas_sele, 'contexto' : contexto_sele },context_instance=RequestContext(request))
+        return render_to_response('dialplan/mod_contexto.html',{'opciones_contexto': opciones_contexto,'errores':errores, 'lista_moh':lista_moh,'lista_valores_audio': lista_valor_ast,'lista_opciones_audio' : lista_opciones, 'mapa_audios' : mapa_audio ,'id_api': id_api,'lista_contextos':lista_contextos, 'nombre_api': nombre_api, 'aplicacion_des_param_form':aplicaciones_des_param_form,'aplicacion_nom_param_form':aplicacion_nom_param_form,'aplicacion_temp_param_form': aplicacion_acti_temp_param_form,'num_param':num_param,'param_form' :parametros_form, 'lista_api': lista_api, 'add_linea': add_linea ,'aplicacion_form': aplicacion_form, 'linea_form': linea_form,'linea': linea_sele,'lista_lineas' : lineas_sele, 'contexto' : contexto_sele },context_instance=RequestContext(request))
 
 
 

@@ -1,0 +1,5 @@
+
+{% for linea_opcion in opciones_contexto%}
+   <div class="alert alert-success">{{linea_opcion}}<a onclick="borra_opcion_contexto('{{contexto}}','3');"><div class="glyphicon glyphicon-remove" id="div_boton_quitar_opcion_contexto" ></div></a> </div>
+
+{%endfor%}

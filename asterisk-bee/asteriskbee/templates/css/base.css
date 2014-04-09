@@ -332,15 +332,15 @@
   border-bottom-right-radius:8px;
   border-top-left-radius:8px;
   border-top-right-radius:8px;
-  margin:10px;
+  margin: 3px 10px;
   padding:4px;
   float: left;
   width: 50%;
+  position: relative;
 
 }
 
-#div_dialplan_botones {
-
+#div_opciones_contexto {
   border:1px solid #C4C4C4;
   border-bottom-left-radius:8px;
   border-bottom-right-radius:8px;
@@ -349,9 +349,26 @@
   margin: 10px;
   padding: 2px;
   float: right;
-  width: 35%;
+  width: 98%;
+  position: relative;
+  display: block;
+  height: auto;
+}
+
+
+#div_dialplan_botones {
+
+  border:1px solid #C4C4C4;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius:8px;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  margin: 8% 40%;
+  padding: 2px;
+  float: right;
+  width: 36%;
   position: fixed;
-  display: inline-table;
+  display: block;
 }
 
 
@@ -848,6 +865,16 @@ border:1px solid #C4C4C4;
 
 #boton_submit_form_crea_iax {
     margin: 8% 3%;
+}
+
+
+#div_boton_quitar_opcion_contexto {
+    float:right;
+}
+
+#div_boton_quitar_opcion_contexto:hover {
+    background-color: #DC3C44;
+    cursor: pointer;
 }
 
 
