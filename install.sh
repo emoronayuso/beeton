@@ -63,13 +63,6 @@ apt-get install --assume-yes libsqliteodbc unixodbc
 
 
 
-#echo -e "-> Instalando servidor web LIGHTTPD <-"
-#apt-get install --assume-yes lighttpd
-
-#lighttpd-enable-mod 10-fastcgi.conf
-
-#/etc/init.d/lighttpd force-reload
-
 
 
 
@@ -106,7 +99,7 @@ apt-get install python-dev
 
 pip install matplotlib
 
-pip install python-crontab
+#pip install python-crontab
 #############################################################
 
 pip install pisa
