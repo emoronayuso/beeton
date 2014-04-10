@@ -6,6 +6,7 @@ import numpy as np
 from datetime import datetime
 
 from django.conf import settings
+settings.configure()
 import os
 
 #para conexion con la bases de datos de beeton (asteriskbee)
@@ -13,8 +14,8 @@ import sqlite3 as dbapi
 
 ##Directorio de la aplicaion
 ### STATIC_ROOT = '/var/www/asterisk-bee/asteriskbee/'
-directorio = settings.STATIC_ROOT+"api_status/"
-
+#directorio = settings.STATIC_ROOT+"api_status/"
+directorio = "/var/www/asterisk-bee/asteriskbee/api_status/"
 
 
 ##Numero de tuplas maximas por grafica

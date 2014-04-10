@@ -106,7 +106,7 @@ apt-get install python-dev
 
 pip install matplotlib
 
-pip install Crontab
+pip install python-crontab
 #############################################################
 
 pip install pisa
