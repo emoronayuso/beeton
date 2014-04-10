@@ -51,6 +51,12 @@ make config
 
 make samples
 
+########Iniciando asterisk#########################
+echo "---------Iniciando Asterisk por primera vez -----------"
+/etc/init.d/asterisk start
+echo "-----------------------------------------------------"
+####################################################
+
 ##paquetes necesarios para Asterisk Realtime#########
 apt-get install --assume-yes libsqliteodbc unixodbc
 #####################################################
