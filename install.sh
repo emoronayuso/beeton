@@ -180,3 +180,5 @@ python setup.py install
 cd $dir_insta/asterisk-bee/asteriskbee/api_status/scripts_graficas/
 python script_crontab.py
 #####################################################
+
+pip install pisa
