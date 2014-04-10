@@ -53,7 +53,8 @@ make samples
 
 ########Iniciando asterisk#########################
 echo "---------Iniciando Asterisk por primera vez -----------"
-/etc/init.d/asterisk start
+cd /etc/init.d/
+asterisk restart
 echo "-----------------------------------------------------"
 ####################################################
 
@@ -120,11 +121,11 @@ ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
 
 cd asteriskbee
 
-ln -s /var/lib/asterisk/agi-bin agi_bin
+#ln -s /var/lib/asterisk/agi-bin agi_bin
 
 cd $dir_actual/files/
 
-cp -Rp agi-bin/* $dir_insta/asterisk-bee/asteriskbee/agi_bin
+#cp -Rp agi-bin/* $dir_insta/asterisk-bee/asteriskbee/agi_bin
 
 cp db/sqlite.db /var/lib/asterisk/
 
@@ -153,5 +154,15 @@ ln -s /var/lib/asterisk/sounds/en sonidos
 
 
 
+#####Se vuelve a reiniciar para que Asterisk genere la base de datos del cdr (master.db)###
+cd /etc/init.d/
+asterisk restart
+######################################################################
 
+#######Se genera el enclace simbolico a los sripts AGI########
+cd $dir_insta/asterisk-bee/asteriskbee/
+ln -s /var/lib/asterisk/agi-bin agi_bin
+
+cd $dir_actual/files/
+cp -Rp agi-bin/* $dir_insta/asterisk-bee/asteriskbee/agi_bin
 
