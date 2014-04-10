@@ -144,6 +144,8 @@ cp  etc/asterisk/res_odbc.conf /etc/asterisk/
 cp  etc/asterisk/res_config_sqlite.conf /etc/asterisk/
 cp  etc/asterisk/modules.conf /etc/asterisk/
 cp  etc/asterisk/cdr_sqlite3_custom.conf /etc/asterisk/
+cp  etc/asterisk/extensions.conf /etc/asterisk/
+touch /etc/asterisk/beeton_extensions.conf
 ######################################
 
 cd $dir_insta/asterisk-bee/asteriskbee/api_cdr
