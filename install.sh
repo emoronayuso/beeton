@@ -166,3 +166,15 @@ ln -s /var/lib/asterisk/agi-bin agi_bin
 cd $dir_actual/files/
 cp -Rp agi-bin/* $dir_insta/asterisk-bee/asteriskbee/agi_bin
 
+
+#########se instala python-crontab######
+##Necesario para script crontab de graficas#########
+cd $dir_actual
+wget https://pypi.python.org/packages/source/p/python-crontab/python-crontab-1.7.2.tar.gz
+tar -zxvf python-crontab-1.7.2.tar.gz
+cd python-crontab-1.7.2
+python setup.py install
+
+cd $dir_insta/asterisk-bee/asteriskbee/api_status/scripts_graficas/
+python script_crontab.py
+#####################################################
