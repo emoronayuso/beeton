@@ -5,8 +5,9 @@ beeton
 PASOS PARA LA INSTALACION
 
 
-1) Ejecutar el script de instalación con el panel Beeton y todas sus dependencias 
-
+1) Ejecutar el script de instalación con el panel Beeton y todas sus dependencias. Proporcionamos permisos de ejecución al script previamente:
+      
+      $ chmod +x install.sh
       $ ./install.sh
 
 El script de instalacion incluye: 
