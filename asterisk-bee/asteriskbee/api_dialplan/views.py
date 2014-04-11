@@ -360,6 +360,10 @@ def mod_contexto(request):
 
 					#Borramos el fichero beeton_extensions.conf.B
 					os.system('rm /etc/asterisk/beeton_extensions.conf.B')
+
+					##Y refrescamos la configuracion de los ficheros de configuracion de Asterisk
+					os.system('asterisk -x reload')        
+
 				else:
 				 ##El contexto ya tiene dicha opcion
 					errores.append('El contexto '+contexto_sele+' ya tiene la opcion: '+api_sele.nombre)  
