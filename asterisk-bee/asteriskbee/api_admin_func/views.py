@@ -82,6 +82,10 @@ def add_func(request):
 			
 			os.system("mv "+settings.STATIC_ROOT+'api_admin_func/pkg_instalados/temp/'+nombre_fich_py+" "+settings.STATIC_ROOT+'agi_bin/'+nombre_fich_py)
 
+			##Ajustamos los permisos de ejecucion al nuevo script
+			os.system("chown root:root "+settings.STATIC_ROOT+'agi_bin/'+nombre_fich_py)
+			os.system("chmod +x "+settings.STATIC_ROOT+'agi_bin/'+nombre_fich_py)
+
 			
 			nombre_fich_html = nombre_fichero('html')
 
