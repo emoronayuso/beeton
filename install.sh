@@ -12,6 +12,7 @@ dir_insta='/var/www'
 
 apt-get update
 
+apt-get install --assume-yes screen
 
 echo -e "-> Instalacion de Asterisk <- "
 apt-get install --assume-yes build-essential
@@ -70,7 +71,7 @@ apt-get install --assume-yes libsqliteodbc unixodbc
 ##############################################INSTALACION DE DJANGO 1.5.5#############################
 echo -e "-> Instalando Django 1.5.5 <-"
 
-apt-get install python-setuptools
+apt-get install --assume-yes python-setuptools
 
 cd $dir_actual/files
 
@@ -96,7 +97,7 @@ pip install flup
 ####Instalacion de modulos necesarios para generar graficas##
 easy_install -U distribute
 
-apt-get install python-dev
+apt-get install --assume-yes python-dev
 
 pip install matplotlib
 

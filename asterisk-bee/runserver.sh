@@ -6,7 +6,8 @@ if [ $# -eq 0 ] || [ $# -gt 1 ]; then
    echo "Detener Beeton: ./runserver.sh stop"
 else
    if [ $1 == "start" ]; then
-     python manage.py runserver 0.0.0.0:8000 > /dev/null 2>&1 &
+     #python manage.py runserver 0.0.0.0:8000
+     screen -S runserver -d -m python manage.py runserver 0.0.0.0:8000
      echo "Beeton se ha iniciado" 
    elif [ $1 == "stop" ]; then
      pid=`netstat -lpn | grep 8000 | tr -s ' ' '-' | cut -d '-' -f7 | cut -d '/' -f1` 
