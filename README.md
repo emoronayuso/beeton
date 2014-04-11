@@ -23,11 +23,11 @@ La instalacion solo se ha probado en un SO Debian 7 Wheezy (De momento).
 
    $./etc/init.d/asterisk restart
 
-3) Para ejecutar Beeton basta con ejecutar el script ./runserver.sh de la carpeta /var/www/asterisk-bee, dandole permisos de ejecucion previamente:
+3) Para arrancar y parar Beeton basta con ejecutar el script ./runserver.sh de la carpeta /var/www/asterisk-bee, dandole permisos de ejecucion previamente:
 
    $. chmod +x runserver.sh
    
-   $./runserver.sh start
+   $./runserver.sh start | stop
    
 Beeton se ejecuta en el puerto 8000 por defecto, para arrancarlo en un puerto diferente puede modificar el script de arranque runserver.sh
 
