@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-from asteriskbee.views import current_datetime,lee_y_muestra_sip
 #from asteriskbee.vistas_cdr import cdr
 from django.conf import settings
 from api_consola.views import *
@@ -17,9 +16,7 @@ from api_admin_func.views import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^time/$',current_datetime),
-    (r'^leesip/$',lee_y_muestra_sip),
-###############PROYECTO######################
+###############PROYECTO BEETON######################
     (r'^$','asteriskbee.views.home'),
     (r'^usuario/nuevo/$','asteriskbee.views.nuevo_usuario'),
     (r'^login/$','asteriskbee.views.ingresar'),
