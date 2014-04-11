@@ -1,7 +1,7 @@
 # Django settings for asteriskbee project.
 
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
