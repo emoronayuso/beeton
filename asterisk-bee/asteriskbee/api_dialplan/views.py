@@ -164,7 +164,7 @@ def mod_contexto(request):
 	mapa_audio = {}
 	for audio in lista_audios:
 		ls1 = str(audio.fichero_audio).split('/')
-		ls2 = ls1[1].split('.')
+		ls2 = ls1[2].split('.')
 		
 		opc = ls2[0]
 
