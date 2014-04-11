@@ -206,7 +206,7 @@ class sip(models.Model):
 #	qualify=xxx|no|yes
 #
 #	where xxx is the number of milliseconds used. If yes the default timeout is used, 2 seconds.
-	qualify = models.CharField(max_length=3,null=True,default='yes',blank=True) 
+	qualify = models.CharField(max_length=3,null=True,default='no',blank=True) 
 #       regexten VARCHAR(80) DEFAULT NULL,
 	regexten = models.CharField(max_length=80,null=True,blank=True) 
 #       restrictcid CHAR(3) DEFAULT NULL, 
@@ -223,7 +223,7 @@ class sip(models.Model):
 #	First disallow all codecs 
 	disallow = models.CharField(max_length=100,null=True,default='all',blank=True)
 #       allow VARCHAR(100) DEFAULT 'g729,ilbc,gsm,ulaw,alaw',
-	allow = models.CharField(max_length=100,null=True,default='g729,ilbc,gsm,ulaw,alaw',blank=True) 
+	allow = models.CharField(max_length=100,null=True,default='alaw,ilbc,gsm,g729,ulaw',blank=True) 
 #       fullcontact VARCHAR(80) NOT NULL DEFAULT '',
 #	<sip:uri_contact> : SIP URI contact for realtime peer. Valid only for realtime peers. 
 	fullcontact = models.CharField(max_length=80,blank=True)
