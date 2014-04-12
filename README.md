@@ -27,7 +27,7 @@ El script de instalacion incluye:
 
 - Panel de administracion Beeton
 
-El proceso de compilación y de instalación tarda unaos 30 min aproximadamente. Asi que ponte cómodo ;P
+El proceso de compilación y de instalación tarda unos 30 min aproximadamente. Asi que ponte cómodo ;P
 
 
 3) Al concluir la instalación, hay que reiniciar asterisk para que se configure la nueva base de datos asocidada a los registros de llamadas "/var/log/asterisk/master.db":
