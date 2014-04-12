@@ -5,7 +5,7 @@ Beeton PBX
 PASOS PARA LA INSTALACION
 
 ¡¡Nota importante!!
-* La instalacion solo se ha probado en un SO Debian 7 Wheezy (De momento) *. Los pasos que se detallan a continuación: 
+* La instalacion solo se ha probado en un SO Debian 7 Wheezy (De momento). Los pasos que se detallan a continuación: 
 
 
 1) Descargar y descomprimir los ficheros del repositorio de GitHub, desde la consola:
@@ -36,7 +36,7 @@ El script de instalacion incluye:
 4) Para arrancar y parar Beeton basta con ejecutar el script ./runserver.sh de la carpeta /var/www/asterisk-bee, dandole permisos de ejecucion previamente:
 
       $ chmod +x runserver.sh
-      $ ./runserver.sh start | stop
+      $ ./runserver.sh start|stop
    
 Beeton se ejecuta en el puerto 8000 por defecto, para arrancarlo en un puerto diferente puede modificar el script de arranque runserver.sh
 
