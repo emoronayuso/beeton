@@ -1,12 +1,21 @@
-beeton
-======
+Beeton PBX
+==========
 
 
 PASOS PARA LA INSTALACION
 
+¡¡Nota importante!!
+* La instalacion solo se ha probado en un SO Debian 7 Wheezy (De momento). Los pasos que se detallan a continuación: 
 
-1) Ejecutar el script de instalación con el panel Beeton y todas sus dependencias. Proporcionamos permisos de ejecución al script previamente:
+
+1) Descargar y descomprimir los ficheros del repositorio de GitHub, desde la consola:
+
+      $ wget https://github.com/emoronayuso/beeton/archive/master.zip
+      $ unzip master.zip
+
+2) Ejecutar el script de instalación con el panel Beeton y todas sus dependencias. Proporcionamos permisos de ejecución al script previamente:
       
+      $ cd beeton-master
       $ chmod +x install.sh
       $ ./install.sh
 
@@ -18,23 +27,22 @@ El script de instalacion incluye:
 
 - Panel de administracion Beeton
 
+El proceso de compilación y de instalación tarda unos 30 min aproximadamente. Asi que ponte cómodo ;P
 
-Nota importante!!
-La instalacion solo se ha probado en un SO Debian 7 Wheezy (De momento).
 
-2) Al concluir la instalación, hay que reiniciar asterisk para que se configure la nueva base de datos asocidada a los registros de llamadas "/var/log/asterisk/master.db":
+3) Al concluir la instalación, hay que reiniciar asterisk para que se configure la nueva base de datos asocidada a los registros de llamadas "/var/log/asterisk/master.db":
 
       $ /etc/init.d/asterisk restart
 
-3) Para arrancar y parar Beeton basta con ejecutar el script ./runserver.sh de la carpeta /var/www/asterisk-bee, dandole permisos de ejecucion previamente:
+4) Para arrancar y parar Beeton basta con ejecutar el script ./runserver.sh de la carpeta /var/www/asterisk-bee, dandole permisos de ejecucion previamente:
 
       $ chmod +x runserver.sh
-      $ ./runserver.sh start | stop
+      $ ./runserver.sh start|stop
    
 Beeton se ejecuta en el puerto 8000 por defecto, para arrancarlo en un puerto diferente puede modificar el script de arranque runserver.sh
 
 
-4) Accedemos al panel de adminsitración Beeton desde un navegador:
+5) Accedemos al panel de adminsitración Beeton desde un navegador:
      
      http://<Ip_servidor>:8000
     
