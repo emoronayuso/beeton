@@ -104,7 +104,7 @@ pip install matplotlib
 #pip install python-crontab
 #############################################################
 
-pip install pisa
+#pip install pisa
 
 pip install html5lib
 
@@ -150,6 +150,9 @@ ln -s /var/log/asterisk/master.db cdr.db
 
 cd $dir_insta/asterisk-bee/asteriskbee/api_admin_audio
 ln -s /var/lib/asterisk/sounds/en sonidos
+
+cd $dir_insta/asterisk-bee/asteriskbee/templates
+ln -s $dir_insta/asterisk-bee/asteriskbee/api_musica_espera/ficheros_audio/ ficheros_moh
 
 cd $dir_actual/files/
 cp audios_de_muestra/* /var/lib/asterisk/sounds/en/
