@@ -15,7 +15,7 @@ class moh(models.Model):
 
 	##Directorio donde estaran los ficeros de audio de la musica en espera,	
 	#'directory' varchar(255) NOT NULL default ,
-	directory = models.CharField(max_length=255,default='/home/asterisk-bee/asteriskbee/api_musica_espera/ficheros_audio')
+	directory = models.CharField(max_length=255,default='/var/www/asterisk-bee/asteriskbee/api_musica_espera/ficheros_audio')
 	
 	#'application' varchar(255) NOT NULL default ,
 	application = models.CharField(max_length=255,null=True,blank=True)
