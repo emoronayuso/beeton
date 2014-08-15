@@ -39,7 +39,7 @@ import subprocess
 
 import os
 
-#Funcion que muestra la lista de los contextos del plan de llamadas
+#Funcion que muestra la lista de las extensiones sip
 @login_required(login_url='/login')
 def lista_contextos(request):
 

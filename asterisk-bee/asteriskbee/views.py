@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,redirect
 import datetime
 
 
@@ -62,5 +62,7 @@ def cerrar(request):
 	return HttpResponseRedirect('/')
 
 def home(request):
-	return HttpResponseRedirect('/login')
-
+    #return HttpResponseRedirect('/login')
+    requestt_url = request.build_absolute_uri(request.get_full_path())
+    secure_url = request_url.replace('http://','https://').replace('8000','8001')
+    return redirect(secure_url + "login")
