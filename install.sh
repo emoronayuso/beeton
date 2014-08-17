@@ -106,6 +106,8 @@ pip install matplotlib
 
 #pip install pisa
 
+pip install django-sslserver
+
 pip install html5lib
 
 cd $dir_actual
