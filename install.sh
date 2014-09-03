@@ -118,11 +118,11 @@ cd /usr/local/lib/python2.7/dist-packages/django_beeton-0.1-py2.7.egg
 
 cp -Rp asterisk-bee $dir_insta
 
-cd $dir_insta/asterisk-bee
+cd $dir_insta/asteriskbee
 
-#ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
+ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
 
-cd asteriskbee
+#cd asteriskbee
 
 #ln -s /var/lib/asterisk/agi-bin agi_bin
 
@@ -194,9 +194,6 @@ pip install pisa
 
 service asterisk restart
 
-cd $dir_insta/asterisk-bee
-
-ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
 
 echo "------------------------------------"
 echo "--BEETON SE INSTALO CORRECTAMENTE---"
