@@ -6,6 +6,7 @@
 dir_actual=$(pwd)
 
 ##
+mkdir '/var/www'
 dir_insta='/var/www'
 #cd $dir_insta'/asterisk-bee'
 
