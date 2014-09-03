@@ -187,10 +187,10 @@ def llamadas_activas(request):
 	f1 = open(settings.STATIC_ROOT+'api_status/archivos/fich_out_canales_activos','r')
 	
 	linea1 = f1.readline()
-    if linea1 == "":
-        canales = 0
-    else:
-        canales = int (linea1)
+        if linea1 == "":
+            canales = 0
+        else:
+            canales = int (linea1)
 
 	f1.close()
 
