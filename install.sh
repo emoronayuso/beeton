@@ -118,7 +118,7 @@ cd /usr/local/lib/python2.7/dist-packages/django_beeton-0.1-py2.7.egg
 
 cp -Rp asterisk-bee $dir_insta
 
-cd $dir_insta/asteriskbee
+cd $dir_insta/asterisk-bee
 
 ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
 

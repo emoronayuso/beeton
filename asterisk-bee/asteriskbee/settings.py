@@ -143,7 +143,8 @@ INSTALLED_APPS = (
     'asteriskbee.api_admin_func', 
     'asteriskbee.api_colas_llamadas',
     ##Para usar el coamndo graph_model y generar grafica del modelo de datos
- #   'django_extensions',   
+ #   'django_extensions',
+    'sslserver',
 )
 
 # A sample logging configuration. The only tangible logging
