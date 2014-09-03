@@ -156,7 +156,10 @@ def uso_ram(request):
         salida = os.system('free -m | grep Mem: | tr " " "," | cut -d "," -f 12 >'+settings.STATIC_ROOT+'api_status/archivos/fich_out_ram_total')
 	f2 = open(settings.STATIC_ROOT+'api_status/archivos/fich_out_ram_total','r')
 	linea2 = f2.readline().strip()
-	res =  int( ( int(linea)*100 ) / int(linea2) ) 
+        if linea == "" or linea2 == "":
+            res = 0
+        else:
+            res =  int( ( int(linea)*100 ) / int(linea2) ) 
 	f.close()
 	f2.close()
 	return render_to_response('server_status/uso_ram.html', {'por_uso_ram' : res}, context_instance=RequestContext(request) )
@@ -184,7 +187,10 @@ def llamadas_activas(request):
 	f1 = open(settings.STATIC_ROOT+'api_status/archivos/fich_out_canales_activos','r')
 	
 	linea1 = f1.readline()
-	canales = int (linea1)
+    if linea1 == "":
+        canales = 0
+    else:
+        canales = int (linea1)
 
 	f1.close()
 
@@ -193,7 +199,10 @@ def llamadas_activas(request):
         f2 = open(settings.STATIC_ROOT+'api_status/archivos/fich_out_llamadas_activas','r')
 
         linea2 = f2.readline()
-        llamadas = int (linea2)
+        if linea2 == "":
+            llamadas = 0
+        else:
+            llamadas = int (linea2)
 
         f1.close()
 
