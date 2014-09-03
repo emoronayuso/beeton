@@ -120,7 +120,7 @@ cp -Rp asterisk-bee $dir_insta
 
 cd $dir_insta/asterisk-bee
 
-ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
+#ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
 
 cd asteriskbee
 
@@ -191,3 +191,14 @@ python script_crontab.py
 #####################################################
 
 pip install pisa
+
+service asterisk restart
+
+cd $dir_insta/asterisk-bee
+
+ln -s  /var/lib/asterisk/sqlite.db db_asteriskbee_sqlite.db
+
+echo "------------------------------------"
+echo "--BEETON SE INSTALO CORRECTAMENTE---"
+echo "------------------------------------"
+
