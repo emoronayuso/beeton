@@ -71,7 +71,10 @@ def server_status(request):
 	salida = os.system('free -m | grep Mem: | tr " " "," | cut -d "," -f 12 >'+settings.STATIC_ROOT+'api_status/archivos/fich_out_ram_total')
 	f2 = open(settings.STATIC_ROOT+'api_status/archivos/fich_out_ram_total','r')
 	linea2 = f2.readline().strip()
-	res =  int( ( int(linea)*100 ) / int(linea2) )
+        if linea == "" or linea2 == "":
+            res = 50
+        else:
+            res =  int( ( int(linea)*100 ) / int(linea2) )
 	f.close()
 	f2.close()
 	
