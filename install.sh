@@ -105,7 +105,7 @@ pip install matplotlib
 #pip install python-crontab
 #############################################################
 
-#pip install pisa
+pip install reportlab
 
 pip install django-sslserver
 
